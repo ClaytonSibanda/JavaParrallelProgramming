@@ -27,6 +27,17 @@ public class MedianParrallel extends RecursiveAction
    @Override
 public void compute()
 {
+
+    for(int i=0;i<(size-1)/2;i++)
+    {
+        newArr[i]=arr[i];
+    }
+
+    for(int i=arr.length-(size-1)/2;i<arr.length;i++)
+    {
+        newArr[i]=arr[i];
+    }
+
     if(high-low<SEQUENTIAL_CUTOFF)
     {
         int k=0;

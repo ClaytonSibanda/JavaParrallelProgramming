@@ -16,7 +16,7 @@ Scanner sc = new Scanner(System.in);
 
 int size=sc.nextInt();
 double tempArr[] =new double[size];
-ForkJoinPool.commonPool().invoke(new MedianParrallel((size-1)/2,arr.length-((size-1)/2),arr,newArr,tempArr,size));
+ForkJoinPool.commonPool().invoke(new MedianParrallel((size-1)/2,arr.length-(size-1)/2,arr,newArr,tempArr,size));
 System.out.println("The Array is "+Arrays.toString(newArr));
 
 
