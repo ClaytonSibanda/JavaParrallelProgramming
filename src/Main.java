@@ -9,16 +9,21 @@ class Main {
 
 
             Median m = new Median();
-            int size=19;
-            double timeArr[] =new double[Experiment.inputSize().length];
-        for(int i=0;i<Experiment.inputSize().length;i++) {
+            int size=0;
+
+            int arr[] =Experiment.filterSize();
+        double timeArr[] =new double[arr.length];
+            int length= 1000000;
+
+        for(int i=0;i<arr.length;i++) {
+            size=arr[i];
             long start_time = System.nanoTime();
-            m.filter(Experiment.readFile("C:\\Users\\USER\\Desktop\\2nd year\\2nd Semester\\CSC2002S\\Assignments\\sampleinputfile.txt", Experiment.inputSize()[i]), size);
+            m.filter(Experiment.readFile("C:\\Users\\USER\\Desktop\\2nd year\\2nd Semester\\CSC2002S\\Assignments\\sampleinputfile.txt", length), size);
             long end_time = System.nanoTime();
             timeArr[i]=(end_time-start_time)/1e6;
         }
 
-Experiment.writeCSV("C:\\Users\\USER\\Desktop\\2nd year\\2nd Semester\\CSC2002S\\Assignments\\Assignment1\\sequentialExp\\lengthExp.csv",Experiment.inputSize(),size,timeArr);
+Experiment.writeCSV("C:\\Users\\USER\\Desktop\\2nd year\\2nd Semester\\CSC2002S\\Assignments\\Assignment1\\sequentialExp\\windowSizeExp.csv",arr,length,timeArr);
 
 
 
