@@ -73,14 +73,14 @@ public class Experiment {
     }
 
 
-    public static void writeCSV(String filename, int arr[], int length,int size, double timeArr[]) {
+    public static void writeCSV(String filename, int arr[],int size, double timeArr[]) {
         try {
             FileWriter fw = new FileWriter(filename,true);
             String newLine = System.getProperty("line.separator");
-            fw.write("SEQUENTIAL_CUTOFF,Length,Length,Time,"+newLine);
+            fw.write("Length,windowSize,Time"+newLine);
 
             for(int i=0;i<arr.length;i++) {
-                fw.write(arr[i] + "," + length + ","+size+"," + timeArr[i] + newLine);
+                fw.write(arr[i] + ","+size+"," + timeArr[i] + newLine);
             }
 
             fw.close();

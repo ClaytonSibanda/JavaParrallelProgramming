@@ -6,54 +6,19 @@ class Main {
 
     public static void main(String args[])
     {
-        int length =0;
-        try
-        {
-            FileReader fr = new FileReader("C:\\Users\\USER\\Desktop\\2nd year\\2nd Semester\\CSC2002S\\Assignments\\sampleinputfile.txt");
-            BufferedReader bf = new BufferedReader(fr);
 
-            String line="";
 
-            length =Integer.parseInt(bf.readLine());
-            double[] arr  =new double[length];
-            int i=0;
-            while((line=bf.readLine())!=null)
-            {
-                //System.out.println(line);
-                arr[i]=Double.parseDouble(line.split(" ")[1]);
-                i++;
-                //if(Integer.parseInt(line.split(" ")[0])>10000)
-
-            }
-           // System.out.println("these are the items "+Arrays.toString(arr));
             Median m = new Median();
-            m.filter(arr,3);
+            int size=19;
+            double timeArr[] =new double[Experiment.inputSize().length];
+        for(int i=0;i<Experiment.inputSize().length;i++) {
+            long start_time = System.nanoTime();
+            m.filter(Experiment.readFile("C:\\Users\\USER\\Desktop\\2nd year\\2nd Semester\\CSC2002S\\Assignments\\sampleinputfile.txt", Experiment.inputSize()[i]), size);
+            long end_time = System.nanoTime();
+            timeArr[i]=(end_time-start_time)/1e6;
         }
-        catch(Exception e)
-        {
-            e.printStackTrace();
-        }
 
-
-
-
-
-
-
-
-
-
-
-
-        //  System.out.println(m.median(arr));
-
-
-
-
-
-
-
-
+Experiment.writeCSV("C:\\Users\\USER\\Desktop\\2nd year\\2nd Semester\\CSC2002S\\Assignments\\Assignment1\\sequentialExp\\lengthExp.csv",Experiment.inputSize(),size,timeArr);
 
 
 

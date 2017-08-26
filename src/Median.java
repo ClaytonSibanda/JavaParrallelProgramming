@@ -38,8 +38,8 @@ public class Median
             newArr[i]=median(tempArr);
 
         }
-        System.out.println("newArr array is "+Arrays.toString(newArr));
-
+       // System.out.println("newArr array is "+Arrays.toString(newArr));
+Experiment.writeFile("C:\\Users\\USER\\Desktop\\2nd year\\2nd Semester\\CSC2002S\\Assignments\\Assignment1\\sequentialExp\\outputSeq.txt",newArr);
         //System.out.println(Arrays.toString(newArr));
 
         return newArr;}

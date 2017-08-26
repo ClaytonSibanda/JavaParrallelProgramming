@@ -36,7 +36,7 @@ public class MainParrallel {
 
         }
         //System.out.println(Arrays.toString(timeArr));
-        Experiment.writeCSV("C:\\Users\\USER\\Desktop\\2nd year\\2nd Semester\\CSC2002S\\Assignments\\Assignment1\\outputSEQUENTIAL_CUTOFF.csv", Experiment.cut_Off(), length,size, timeArr);
+       // Experiment.writeCSV("C:\\Users\\USER\\Desktop\\2nd year\\2nd Semester\\CSC2002S\\Assignments\\Assignment1\\outputSEQUENTIAL_CUTOFF.csv", Experiment.cut_Off(), length,size, timeArr);
 
 
     }
