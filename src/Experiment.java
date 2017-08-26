@@ -19,7 +19,7 @@ public class Experiment {
     }
 
     //for changing the size of the filter or the window size of the filter
-    public int[] filterSize() {
+    public static int[] filterSize() {
         int arr[] = new int[10];
         for (int i = 0, j = 3; i < arr.length; i++, j += 2) {
             arr[i] = j;
@@ -73,14 +73,14 @@ public class Experiment {
     }
 
 
-    public static void writeCSV(String filename, int arr[], int size, double timeArr[]) {
+    public static void writeCSV(String filename, int arr[], int length, double timeArr[]) {
         try {
             FileWriter fw = new FileWriter(filename,true);
             String newLine = System.getProperty("line.separator");
-            fw.write( newLine);
+            fw.write("Size,Length,Time"+newLine);
 
             for(int i=0;i<arr.length;i++) {
-                fw.write(arr[i] + "," + size + "," + timeArr[i] + newLine);
+                fw.write(arr[i] + "," + length + "," + timeArr[i] + newLine);
             }
 
             fw.close();

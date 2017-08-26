@@ -12,13 +12,13 @@ public class MainParrallel {
 
     public static void main(String args[]) {
         int size=0;
-        double[] timeArr = new double[Experiment.inputSize().length];;
+        double[] timeArr = new double[Experiment.filterSize().length];;
 
-        for (int i = 0; i < Experiment.inputSize().length; i++) {
-            double arr[] = Experiment.readFile("C:\\Users\\USER\\Desktop\\2nd year\\2nd Semester\\CSC2002S\\Assignments\\sampleinputfile.txt", Experiment.inputSize()[i]);
+        for (int i = 0; i < Experiment.filterSize().length; i++) {
+            double arr[] = Experiment.readFile("C:\\Users\\USER\\Desktop\\2nd year\\2nd Semester\\CSC2002S\\Assignments\\sampleinputfile.txt", 500000);
             double newArr[] = new double[arr.length];
 
-            size = 3;// sc.nextInt();
+            size = Experiment.filterSize()[i];// sc.nextInt();
 
             // while (size != 0) {
             double tempArr[] = new double[size];
@@ -33,7 +33,7 @@ public class MainParrallel {
             //System.out.println(timeArr[i]);
         }
         //System.out.println(Arrays.toString(timeArr));
-        Experiment.writeCSV("C:\\Users\\USER\\Desktop\\2nd year\\2nd Semester\\CSC2002S\\Assignments\\Assignment1\\output1.csv",Experiment.inputSize(),size,timeArr);
+        Experiment.writeCSV("C:\\Users\\USER\\Desktop\\2nd year\\2nd Semester\\CSC2002S\\Assignments\\Assignment1\\outputSize.csv",Experiment.filterSize(),500000,timeArr);
 
 
     }
