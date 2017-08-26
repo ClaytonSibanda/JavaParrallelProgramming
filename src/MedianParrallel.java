@@ -10,16 +10,16 @@ public class MedianParrallel extends RecursiveAction {
     double newArr[];
     double tempArr[];
     int size;
-    int SEQUENTIAL_CUTOFF = 1000;
+    int SEQUENTIAL_CUTOFF;
 
-    public MedianParrallel(int low, int high, double arr[], double newArr[], double tempArr[], int size) {
+    public MedianParrallel(int low, int high, double arr[], double newArr[], double tempArr[], int size,int SEQUENTIAL_CUTOFF) {
         this.low = low;
         this.high = high;
         this.arr = arr;
         this.newArr = newArr;
         this.size = size;
         this.tempArr = tempArr;
-
+        this.SEQUENTIAL_CUTOFF=SEQUENTIAL_CUTOFF;
     }
 
     @Override
@@ -49,8 +49,8 @@ public class MedianParrallel extends RecursiveAction {
 
             }
         } else {
-            MedianParrallel left = new MedianParrallel(low, (low + high) / 2, arr, newArr, tempArr, size);
-            MedianParrallel right = new MedianParrallel((low + high) / 2, high, arr, newArr, tempArr, size);
+            MedianParrallel left = new MedianParrallel(low, (low + high) / 2, arr, newArr, tempArr, size,SEQUENTIAL_CUTOFF);
+            MedianParrallel right = new MedianParrallel((low + high) / 2, high, arr, newArr, tempArr, size,SEQUENTIAL_CUTOFF);
             left.fork();
             right.compute();
             left.join();
